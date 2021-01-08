@@ -12,7 +12,7 @@ pipeline {
 		}
 		stage ('Deploy')  {
 				parallel{
-					stage ('Deploy1') {
+					stage ('Deploy_test') {
 					steps {
 						sh '''
 								echo "This is a Deploy Stage"
@@ -22,7 +22,7 @@ pipeline {
 					}
 					}
 					
-					stage ('Deploy2') {
+					stage ('Deploy_prod') {
 					steps {
 						sh '''
 								echo "This is a Deploy Stage"
