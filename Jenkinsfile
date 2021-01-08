@@ -10,28 +10,29 @@ pipeline {
 				   '''
 			}
 		}
-		parallel{
-		    stage ('Deploy1') {
-			steps {
-				sh '''
-						echo "This is a Deploy Stage"
-						sleep 2
-				
-				   '''
-			}
-		    }
-		    
-		    stage ('Deploy2') {
-			steps {
-				sh '''
-						echo "This is a Deploy Stage"
-						sleep 2
-				
-				   '''
-			}
-		    }
+		stage ('Deploy')  {
+				parallel{
+					stage ('Deploy1') {
+					steps {
+						sh '''
+								echo "This is a Deploy Stage"
+								sleep 2
+						
+						   '''
+					}
+					}
+					
+					stage ('Deploy2') {
+					steps {
+						sh '''
+								echo "This is a Deploy Stage"
+								sleep 2
+						
+						   '''
+					}
+					}
+				}
 		}
-		
 		stage ('Test') {
 			steps {
 				sh '''
